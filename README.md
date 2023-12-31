@@ -7,7 +7,7 @@ ele foi forkado de um projeto base incompleto, completado e modificado como demo
 
 No conteúdo inicial do projeto o código estava inacabado e precisa de algumas alterações como mostra abaixo:
 
-![foto_inicial](./pictures/inicial.png)
+![foto_inicial](./JS_Developer_Pokedex_João/pictures/inicial.png)
 
 A ideia para finalizar a parte inicial era de mostrar os pokemons na tela como uma lista (uma pokedex).
 
@@ -17,5 +17,5 @@ As modificações que criei no código do projeto foi a adição de
 elementos a mais mostrados no momento que clicamos em cada pokemon
 :
 
-![alt](./pictures/alt_autorais.png)
+![alt](./JS_Developer_Pokedex_João/pictures/alt_autorais.png)
 
