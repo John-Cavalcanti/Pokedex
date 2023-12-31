@@ -7,6 +7,10 @@ body {
     background-color: #f6f8fc;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .content {
     width: 100vw;
     height: 100vh;

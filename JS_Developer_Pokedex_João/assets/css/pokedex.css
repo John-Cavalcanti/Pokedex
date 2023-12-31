@@ -82,9 +82,12 @@
     display: flex;
     flex-direction: column;
     margin: .5rem;
-    padding: 1rem;
+    height: fit-content;
     border-radius: 1rem;
-    background-color: #49d0b0;
+}
+
+.pokemon:hover{
+    cursor: pointer;
 }
 
 .pokemon .number {
@@ -101,9 +104,47 @@
 
 .pokemon .detail {
     display: flex;
+    flex-direction: column;
+}
+
+.pokemon .detail .header {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.pokemon .detail .main-details {
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.pokemon .detail .more-details{
+    display: none;
+}
+
+.pokemon .detail .more-details.show{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    background-color: #ececec;
+    border-radius: 1rem;
+    font-size: .8rem;
+}
+
+.info-extra{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+}
+
+.info-extra p,
+.info-extra h3{
+    margin: 0;
 }
 
 .pokemon .detail .types {
