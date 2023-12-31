@@ -3,6 +3,8 @@
 A pokedex foi feita com html/css/js puro, fazendo o consumo da pokeApi
 ele foi forkado de um projeto base incompleto, completado e modificado como demonstrarei.
 
+Para visualizar o resultado final é necessário fazer o download do projeto em sua máquina e clicar no arquivo html para ser aberto com algum navegador, ou utilizar alguma ferramenta do vscode para fazer a visualização como o live server.
+
 ## Projeto base
 
 No conteúdo inicial do projeto o código estava inacabado e precisava de algumas alterações, realizei as modificações necessárias e o resultado ficou como mostra abaixo:
