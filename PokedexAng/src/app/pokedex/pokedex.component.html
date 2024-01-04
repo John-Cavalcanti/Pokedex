@@ -1,10 +1,9 @@
 <h1>Pokedex</h1>
-<ol id="pokemonList" class="pokemons">
-
+<ol id="pokemonList" class="pokemons" [innerHTML]="pokemonListHtml">
 </ol>
 
 <div class="pagination">
-    <button id="loadMoreButton" type="button">
+    <button id="loadMoreButton" type="button" (click)="loadMore()">
         Load More
     </button>
 </div>

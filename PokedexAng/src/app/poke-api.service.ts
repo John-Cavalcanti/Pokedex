@@ -6,7 +6,9 @@ import { Pokemon } from 'src/models/Pokemon';
 })
 export class PokeApiService {
 
-  constructor() { }
+  constructor() {
+    this.getPokemonDetail = this.getPokemonDetail.bind(this);
+  }
 
   private convertPokeApiDetailToPokemon(pokeDetail: any): Pokemon
   {
