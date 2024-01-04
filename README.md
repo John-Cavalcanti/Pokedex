@@ -12,9 +12,7 @@
 
 ## Description
 
-The Pokedex was created with pure HTML/CSS/JS, fetching data from the PokeAPI. It was forked from an incomplete base project, completed, and modified as demonstrated.
-
-To view the final result, download the project to your machine and open the HTML file in a browser or use a tool like Live Server in VSCode for visualization.
+The Pokedex was created with pure HTML/CSS/JS, fetching data from the PokeAPI. It was forked from an incomplete base project, completed by me, and modified as demonstrated.
 
 ## Ways to View Both Projects
 
@@ -71,9 +69,7 @@ The main modification I made to the project code was adding additional details f
 ## Descrição
 
 A pokedex foi feita com html/css/js puro, fazendo o consumo da pokeApi
-ele foi forkado de um projeto base incompleto, completado e modificado como demonstrarei.
-
-Para visualizar o resultado final é necessário fazer o download do projeto em sua máquina e clicar no arquivo html para ser aberto com algum navegador, ou utilizar alguma ferramenta do vscode para fazer a visualização como o live server.
+ele foi forkado de um projeto base incompleto, eu o completei e modifiquei com alterações que considerei convenientes.
 
 ## Formas de visualizar os dois projetos
 
