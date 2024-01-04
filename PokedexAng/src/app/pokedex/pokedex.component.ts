@@ -24,37 +24,33 @@ export class PokedexComponent implements OnInit{
     this.loadPokemonItens(this.offset,this.limit);
   }
 
-  loadPokemonItens(offset:number ,limit:number): void
-  {
-    this.myPokeService.getPokemons(offset,limit)
-    .then((pokemons:any[] = []) => 
-    {
-      this.pokemonListArray = [...this.pokemonListArray, ...pokemons]
-    })
-    .catch((error) => {
-      console.error('error loading pokemon data', error)
-    })
+  loadPokemonItens(offset: number, limit: number): Promise<void> {
+    return this.myPokeService.getPokemons(offset, limit)
+      .then((pokemons: any[] = []) => {
+        this.pokemonListArray = [...this.pokemonListArray, ...pokemons];
+        console.log(this.pokemonListArray[0].weight);
+      })
+      .catch((error) => {
+        console.error('error loading pokemon data', error);
+      });
   }
 
-  loadMore()
-  {
+  loadMore() {
     this.offset += this.limit;
     const qtdRecordsWithNextPage = this.offset + this.limit;
-
-    if(qtdRecordsWithNextPage >= this.maxRecords)
-    {
+  
+    if (qtdRecordsWithNextPage >= this.maxRecords) {
       const newLimit = this.maxRecords - this.offset;
       this.loadPokemonItens(this.offset, newLimit);
-
+  
+      // Remove the button after loading the last batch
       const loadMoreButton = document.getElementById('loadMoreButton');
-      if(loadMoreButton)
-      {
+      if (loadMoreButton) {
         loadMoreButton.parentElement?.removeChild(loadMoreButton);
       }
-      else 
-      {
-        this.loadPokemonItens(this.offset,this.limit);
-      }
+    } else {
+      // Load more Pokémon items and update the view
+      this.loadPokemonItens(this.offset, this.limit).then(() => {});
     }
   }
 

@@ -18,7 +18,7 @@ export class PokeApiService {
       pokeDetail.sprites.other.dream_world.front_default,
       pokeDetail.base_experience,
       pokeDetail.height,
-      pokeDetail.wight,
+      pokeDetail.weight,
       pokeDetail.types.map((typeSlot: any) => typeSlot.type.name))
       
       return pokemon;
