@@ -1,66 +1,27 @@
 import { PokeApiService } from './../poke-api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'pokedex',
   templateUrl: './pokedex.component.html',
-  styleUrls: ['./pokedex.component.css']
+  styleUrls: ['./pokedex.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class PokedexComponent implements OnInit{
 
   maxRecords: number = 151;
   limit: number = 10;
   offset: number = 0;
-  pokemonListHtml:string = '';
+  pokemonListHtml: string = '';
+  pokemonListArray: any[] = [];
 
   constructor(
-    private myPokeService: PokeApiService
+    private myPokeService: PokeApiService,
+    private el: ElementRef
   ) {}
 
   ngOnInit(): void {
     this.loadPokemonItens(this.offset,this.limit);
-  }
-
-  convertPokemonToLi(pokemon: any): string {
-    return `
-            <li class="pokemon ${pokemon.type}">
-                
-                <div class="detail">
-                    
-                    <div class ="header">
-                        <span class="number">#${pokemon.number}</span>
-                        <span class="name">${pokemon.name}</span>
-                        <div class="main-details">
-                            <ol class="types">
-                                ${pokemon.types.map((type:any) => `<li class="type ${type}">${type}</li>`).join('')}
-                            </ol>
-
-                            <img src="${pokemon.photo}"
-                                alt="${pokemon.name}">
-                        </div>
-                    </div>
-
-                    <div class="more-details">
-                        <h3>Mais detalhes de ${pokemon.name}</h3>
-                        <div class="info-extra">
-                            <span> XP Base </span>
-                            <p>${pokemon.base_xp}</p>
-                        </div>
-
-                        <div class="info-extra">
-                            <span> Altura </span>
-                            <p>${pokemon.height}</p>
-                        </div>
-
-                        <div class="info-extra">
-                            <span> Peso em hectogramas </span>
-                            <p>${pokemon.weight}</p>
-                        </div>
-                        
-                    </div>
-                </div>
-            </li>
-        `
   }
 
   loadPokemonItens(offset:number ,limit:number): void
@@ -68,8 +29,7 @@ export class PokedexComponent implements OnInit{
     this.myPokeService.getPokemons(offset,limit)
     .then((pokemons:any[] = []) => 
     {
-      const newHtml = pokemons.map(this.convertPokemonToLi).join('');
-      this.pokemonListHtml += newHtml;
+      this.pokemonListArray = [...this.pokemonListArray, ...pokemons]
     })
     .catch((error) => {
       console.error('error loading pokemon data', error)
@@ -98,4 +58,11 @@ export class PokedexComponent implements OnInit{
     }
   }
 
+  showPokemonsDetails(pokemon:any): void
+  {
+      const details = this.el.nativeElement.querySelector(`#pokemon-${pokemon.number} .more-details`);
+      if (details) {
+        details.classList.toggle('show');
+    }
+  }
 }

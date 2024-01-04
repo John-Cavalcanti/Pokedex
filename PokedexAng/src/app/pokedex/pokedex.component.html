@@ -1,5 +1,42 @@
 <h1>Pokedex</h1>
-<ol id="pokemonList" class="pokemons" [innerHTML]="pokemonListHtml">
+
+<ol id="pokemonList" class="pokemons">
+    <li *ngFor="let pokemon of pokemonListArray" id="pokemon-{{ pokemon.number }}" class="pokemon {{pokemon.type}}" (click)="showPokemonsDetails(pokemon)">
+                
+        <div class="detail">
+            
+            <div class ="header">
+                <span class="number">#{{pokemon.number}}</span>
+                <span class="name">{{pokemon.name}}</span>
+                <div class="main-details">
+                    <ol class="types">
+                        <li *ngFor="let type of pokemon.types" class="type {{type}}">{{ type }}</li>
+                    </ol>
+
+                    <img [src]="pokemon.photoPath" [alt]="pokemon.name">
+                </div>
+            </div>
+
+            <div class="more-details">
+                <h3>Mais detalhes de {{pokemon.name}}</h3>
+                <div class="info-extra">
+                    <span> XP Base </span>
+                    <p>{{pokemon.base_xp}}</p>
+                </div>
+
+                <div class="info-extra">
+                    <span> Altura </span>
+                    <p>{{pokemon.height}}</p>
+                </div>
+
+                <div class="info-extra">
+                    <span> Peso em hectogramas </span>
+                    <p>{{pokemon.weight}}</p>
+                </div>
+                
+            </div>
+        </div>
+    </li>
 </ol>
 
 <div class="pagination">

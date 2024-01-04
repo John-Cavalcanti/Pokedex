@@ -2,19 +2,6 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const listaPokemons = document.getElementById('pokemonList')
 
-listaPokemons.addEventListener('click', function (event) {
-    // Check if the clicked element or its ancestor has the class 'pokemon'
-    const pokemonItem = event.target.closest('.pokemon');
-    
-    if (pokemonItem) {
-        // Find the details element within the clicked Pokémon item
-        const details = pokemonItem.querySelector('.more-details');
-        
-        // Toggle the 'show' class to change visibility
-        details.classList.toggle('show');
-    }
-});
-
 const maxRecords = 151
 const limit = 10
 let offset = 0;
@@ -84,3 +71,16 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+listaPokemons.addEventListener('click', function (event) {
+    // Check if the clicked element or its ancestor has the class 'pokemon'
+    const pokemonItem = event.target.closest('.pokemon');
+    
+    if (pokemonItem) {
+        // Find the details element within the clicked Pokémon item
+        const details = pokemonItem.querySelector('.more-details');
+        
+        // Toggle the 'show' class to change visibility
+        details.classList.toggle('show');
+    }
+});
